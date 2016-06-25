@@ -1,1 +1,59 @@
+$viewport: 750px;
+$margin_bottom: 135px;
 
+@mixin rotate{
+    transform-origin: left top;
+    transform: rotate(90deg) translateY(-$viewport);
+}
+
+@mixin rotate_fullscreen{
+    width: calc(100vh - #{$margin_bottom});
+    height: 100vw;
+}
+
+.wrapper{
+    @include fixed(0, 0, 0, 0);
+}
+
+.wrapper__background{
+    @include absolute(0, 0, 0, 0);
+    @include rotate;
+
+    img{
+        @include rotate_fullscreen;
+    }
+}
+
+.visited{
+    display: flex;
+    flex-wrap: wrap;
+    @include fixed(0, 0, 0, 0);
+    @include rotate;
+    @include rotate_fullscreen;
+}
+
+.visited__inner{
+    background-position: center center;
+    background-size: cover;
+}
+
+.modal{
+    display: none;
+    @include fixed(0, 0, 0, 0);
+    @include rotate;
+    @include rotate_fullscreen;
+
+    &.is-show{
+        display: block;
+
+        .modal__inner{
+            animation: show-modal 0.75s linear both;
+        }
+    }
+
+}
+
+.modal__inner{
+    @include absolute(0, 0, 0, 0);
+    background-size: 100% 100%;
+}

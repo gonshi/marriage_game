@@ -17,6 +17,16 @@
     @if $right  != '' { right: $right; }
 }
 
+@mixin fixed($top, $right, $bottom, $left) {
+    position: fixed;
+
+    @if $top    != '' { top: $top; }
+    @if $bottom != '' { bottom: $bottom; }
+    @if $left   != '' { left: $left; }
+    @if $right  != '' { right: $right; }
+}
+
+
 //
 // absolute-center
 // 中央に絶対配置
